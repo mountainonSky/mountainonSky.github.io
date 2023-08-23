@@ -1,0 +1,140 @@
+@charset "utf-8"; 
+
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+.fhd,  .sm { display:none;}
+body {
+    background:url('../imgs/main-slide01.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    min-width:100vw;
+    min-height:100vh;
+}
+.bg{
+    position:absolute;
+    width:100vw; height:100vh ;
+    background:rgba(0, 0, 0, 0.1);
+    z-index:1;
+    transition:all 0.4s ease ;
+    transform-origin: center center;
+    min-width:100vw;
+    min-height:100vh;
+}
+
+html:hover .bg { background:rgba(0, 0, 0, 0.3);}
+html:hover .left{
+    transform: scale(1.5) rotate(30deg) translate(-10%, 40%);
+    transition:all 1s ease ;
+}
+html:hover .center{
+   transform: translateY(70px);
+    transition:all 2s ease ;
+}
+html:hover .right{
+    transform: scale(1.5) rotate(-30deg) translate(-10%, 40%);
+    transition:all 0.5s ease ;
+}
+.bg:hover {opacity:0.5; }
+header { background:none; }
+
+section {position: relative; width:700px; height:100vh; margin:0 auto;}
+.hd {
+    position: absolute; top:15vh; left:50%; transform: translateX(-50%); z-index:99 ;
+}
+path {
+	fill:#fff; /* 문자의 색상을 #FFF로 지정, 문자의 획(stroke)이 자연스럽게 동작하려면 fill 속성값을 none에서 #fff로 수정*/
+	stroke:#FFF; /*문자의 획*/
+	stroke-dasharray:1200;/*획의 직선적인 모습을 제거하기 위해 사용*/
+	/*문자서체에 따라서 수치를 변경하면서 획이 보이도록 한다.*/ 
+    stroke-miterlimit:10;
+	opacity:1;
+	animation:strokeAni 15s cubic-bezier(0,0.23,1,1) infinite normal;
+	/*https://cubic-bezier.com 에서 함수의 매개변수 값을 얻는다.*/
+}
+.st0{
+    fill:#c31432; /* 문자의 색상을 #FFF로 지정, 문자의 획(stroke)이 자연스럽게 동작하려면 fill 속성값을 none에서 #fff로 수정*/
+    stroke:#c31432; /*문자의 획*/
+    stroke-width:3; /*문자의 획 두께*/
+    stroke-miterlimit:10; /*획 이음(연결점) 부분을 확장해서 부드러운 연결을 만든다*/
+    animation:strokeAni2 15s cubic-bezier(0,0.23,1,1) infinite normal;
+}
+@keyframes strokeAni {
+	0%{
+		fill:none;/*문자의 색상이 없음*/
+		opacity:0; /*문자의 투명도를 0으로 지정 */
+		stroke-dashoffset:1200; /*문자 획의 직선인 모습을 제거하기 위해 사용*/
+	}
+	30%{
+		fill:rgba(255,255,255,0.5);
+		stroke-dashoffset:600; 
+	}
+    50%{
+		fill:rgba(255,255,255,0);
+		opacity:1;
+		stroke-dashoffset:800; 
+	}
+    65%{
+		fill:rgba(255,255,255,1);
+		opacity:1;
+		stroke-dashoffset:1200; 
+	}
+	80%{
+		fill:rgba(255,255,255,0);
+	}
+	90%{
+		fill:rgba(255,255,255,1);
+		opacity:1;
+		stroke-dashoffset:0; 
+	}
+}
+@keyframes strokeAni2 {
+	0%{
+		fill:none;/*문자의 색상이 없음*/
+		opacity:0; /*문자의 투명도를 0으로 지정 */
+		stroke-dashoffset:1200; /*문자 획의 직선인 모습을 제거하기 위해 사용*/
+	}
+	30%{
+		fill:rgba(195,20,50,0.5);
+		stroke-dashoffset:300; 
+	}
+    50%{
+		fill:rgba(255,255,255,0);
+		opacity:1;
+		stroke-dashoffset:800; 
+	}
+    65%{
+		fill:#c31432;
+		opacity:1;
+		stroke-dashoffset:1200; 
+	}
+	80%{
+		fill:rgba(255,255,255,0);
+	}
+	90%{
+		fill:#c31432;
+		opacity:1;
+		stroke-dashoffset:0; 
+	}
+}
+
+
+
+.btns {
+    position: absolute; bottom:10vh ; left:20px; z-index:99 ;
+}
+
+.btns > div {
+    float:left; margin:15px;
+    transition:all 0.3s ease-out;
+}
+.btns > div:nth-child(4) { margin-right:0; }
+
+.btns > div > a {
+    width:300px; height:75px; padding-top:15px;
+    font-size:30px; text-align:center;  color:#fff ; text-transform: capitalize;
+    border:1px solid #fff;
+    border-radius:75px;
+    transition:all 0.3s ease-out;
+}
+footer{display:none ;}

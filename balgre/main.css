@@ -1,0 +1,757 @@
+@charset "utf-8"; 
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+header {z-index:999;}
+
+body {
+    
+    background:url('../imgs/main-slide01.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+
+}
+.bg{
+    position:absolute;
+    width:100vw; height:100vh ;
+    background:rgba(0, 0, 0, 0.1);
+    z-index:1;
+    transition:all 0.4s ease ;
+    transform-origin: center center;
+    min-width:100vw;
+    min-height:100vh;
+}
+
+html:hover .bg { background:rgba(0, 0, 0, 0.3);}
+html:hover .left{
+    transform: scale(1.5) rotate(30deg) translate(-10%, 40%);
+    transition:all 1s ease ;
+}
+html:hover .center{
+   transform: translateY(70px);
+    transition:all 2s ease ;
+}
+html:hover .right{
+    transform: scale(1.5) rotate(-30deg) translate(-10%, 40%);
+    transition:all 0.5s ease ;
+}
+.bg:hover {opacity:0.5; }
+header { background:none; }
+footer { display:none ; }
+
+@media screen and (min-width:1400px){
+    .mobile, .hd, .tb, .sm {display:none;}
+    header { position:fixed; width:100%; height:70px;  z-index:999;}
+    nav { width:95%; margin:0 auto; }
+    nav #trigger{ position:relative; width:40px; height:24px; margin-top:22px; z-index:99;}
+    nav #trigger span {
+       position:absolute; right:0; height:4px;
+       background:#fff; border-radius:4px;
+       transition:all 0.4s ease-in 1.2s;
+    }
+    nav #trigger span:nth-child(1) { top:0; width:100% }
+    nav #trigger span:nth-child(2) { bottom:2px; width:100% }
+    /*=====#trigger.active=====*/
+    nav #trigger.active span { background:#c31432 ; transition:all 0.4s ease-in; }
+    nav #trigger.active span:nth-child(1) { 
+        width:70%;
+        transform: translateY(9px) rotate(-45deg); }
+    nav #trigger.active span:nth-child(2) {
+        width:70%;
+        transform:translateY(-9px) rotate(45deg);
+    }
+    nav h1 { position:absolute; left:50%; top:18px; width:160px; margin-left:-80px; }
+    nav h1 img { width:100%; }
+    nav .topmenu { float:right; margin-top:-20px ;}
+    nav .topmenu > li { float:left; }
+    nav .topmenu > li > a { padding:0 15px; color:#fff;  }
+    
+    
+    
+    #main-menu {
+        position:absolute; left:-1000px; top:0;
+        width:25vw; height:70vh; background: rgba(255,255,255,1); 
+        opacity:0 ; transition:all 0.3s ease-in 1s; z-index:3;
+    }
+    #main-menu ul { 
+        position:absolute; left:50%; top:50%; width:420px; height:600px;
+        margin:-250px 0 0 -150px;
+    }
+    #main-menu li { height:150px; }
+    #main-menu li a { font-size:36px; color:#333; text-transform:capitalize; letter-spacing:-3px; }
+    
+    #subBg { 
+        position:absolute; left:-999px; top: 0;
+        width:25vw; height:70vh; background:#feeaef ;
+        opacity:0; transition:all 0.4s ease-in 0.5s ;
+        z-index:2;
+    }
+    #subBg ul.sub-menu { 
+        position:absolute; left:0; top:-900px;  
+        width:100%;  
+        opacity:0;
+        z-index: 9;
+        transition:all 1s ease-in ;
+     }
+     #subBg ul.sub-menu > li { padding-top:40px; }
+    #subBg ul.sub-menu > li > a{ 
+        height:60px; 
+        font-size:30px; color:#000; text-align: center; line-height: 60px; 
+    }
+    
+    #menuBg {
+        position:absolute; top: 0px; left:-1000px; width:25vw; height:70vh ;
+        background:url('../../imgs/mainBg.jpg') no-repeat center center ;  
+        background-size:cover;
+        opacity:0;
+        transition:all 0.5s ease-in ;
+    }
+    
+    
+    /*=====#main-menu.active=====*/
+    #main-menu.active{ opacity:1; left:0; transition:all 0.5s ease-in; }
+    #subBg.active{ opacity:1; left:25vw }
+    #subBg .sub-menu.on {opacity:1 ; top:33%;  }
+    #menuBg.active { opacity:1;left:50vw; transition:all 0.3s ease-in 1s; }
+
+    section {position: relative; width:1400px; height:100vh; margin:0 auto;}
+    .fhd {
+        position: absolute; top:15vh; left:50px; z-index:99 ;
+    }
+    path {
+        fill:#fff; 
+        stroke:#FFF; 
+        stroke-dasharray:1200;
+        stroke-miterlimit:10;
+        opacity:1;
+        animation:strokeAni 10s cubic-bezier(0,0.23,1,1) infinite normal;
+    }
+    .st0{
+        fill:#c31432; 
+        stroke:#c31432; 
+        stroke-width:3;
+        stroke-miterlimit:10; 
+        animation:strokeAni2 10s cubic-bezier(0,0.23,1,1) infinite normal;
+    }
+
+
+/*stroke animation 정의*/
+    @keyframes strokeAni {
+        0%{
+            fill:none;
+            opacity:0; 
+            stroke-dashoffset:1200; 
+        }
+        30%{
+            fill:rgba(255,255,255,0.5);
+            opacity:0.6;
+            stroke-dashoffset:600; 
+        }
+        50%{
+            fill:rgba(255,255,255,0);
+            opacity:1;
+            stroke-dashoffset:800; 
+        }
+        65%{
+            fill:rgba(255,255,255,1);
+            opacity:1;
+            stroke-dashoffset:1200; 
+        }
+        75%{
+            fill:rgba(255,255,255,0);
+        }
+        85%{
+            fill:rgba(255,255,255,1);
+            opacity:1;
+            stroke-dashoffset:0; 
+        }
+    }
+    @keyframes strokeAni2 {
+        0%{
+            fill:none;
+            opacity:0; 
+            stroke-dashoffset:1200; 
+        }
+        30%{
+            fill:rgba(195,20,50,0.5);
+            stroke-dashoffset:300; 
+        }
+        50%{
+            fill:rgba(255,255,255,0);
+            opacity:1;
+            stroke-dashoffset:800; 
+        }
+        65%{
+            fill:#c31432;
+            opacity:1;
+            stroke-dashoffset:1200; 
+        }
+        75%{
+            fill:rgba(255,255,255,0);
+        }
+        85%{
+            fill:#c31432;
+            opacity:1;
+            stroke-dashoffset:0; 
+        }
+    }
+
+
+    .btns {
+        position: absolute; top:75vh; left:50px; z-index:99 ;
+    }
+
+    .btns > div {
+        float:left; margin-right:50px;
+        transition:all 0.3s ease-out;
+    }
+    .btns > div:nth-child(4) { margin-right:0; }
+
+    .btns > div > a {
+        width:285px; height:120px; padding-top:35px;
+        font-size:30px; text-align:center;  color:#fff ; text-transform: capitalize;
+        border:1px solid #fff;
+        transition:all 0.3s ease-out;
+    }
+
+    .btns >div:hover>a {
+        height:200px;  padding-top:65px ; 
+        background:rgba(195,20,50,0.8);
+        border:none;
+        transform:translateY(-80px) ;
+    }
+
+    .btns > div:nth-child(1):hover a::after{
+        content:'칵테일에 대해서'; display:block; font-size:16px;
+    }
+    .btns > div:nth-child(2):hover a::after{
+        content:'칵테일의 종류'; display:block; font-size:16px;
+    }
+    .btns > div:nth-child(3):hover a::after{
+        content:'교육'; display:block; font-size:16px;
+    }
+    .btns > div:nth-child(4):hover a::after{
+        content:'예약'; display:block; font-size:16px;
+    }
+}
+
+
+@media screen and (min-width:1000px) and (max-width:1399px) {
+        .mobile, .fhd, .sm {display:none;}
+        header { position:fixed; width:100%; height:70px;  }
+        nav { width:95%; margin:0 auto; }
+        nav #trigger{ position:relative; width:40px; height:24px; margin-top:22px; z-index:99;}
+        nav #trigger span {
+           position:absolute; right:0; height:4px;
+           background:#fff; border-radius:4px;
+           transition:all 0.4s ease-in 1.2s;
+        }
+        nav #trigger span:nth-child(1) { top:0; width:100% }
+        nav #trigger span:nth-child(2) { bottom:2px; width:100% }
+        /*=====#trigger.active=====*/
+        nav #trigger.active span { background:#c31432 ; transition:all 0.4s ease-in; }
+        nav #trigger.active span:nth-child(1) { 
+            width:70%;
+            transform: translateY(9px) rotate(-45deg); }
+        nav #trigger.active span:nth-child(2) {
+            width:70%;
+            transform:translateY(-9px) rotate(45deg);
+        }
+        nav h1 { position:absolute; left:50%; top:18px; width:160px; margin-left:-80px; }
+        nav h1 img { width:100%; }
+        nav .topmenu { float:right; margin-top:-20px ;}
+        nav .topmenu > li { float:left; }
+        nav .topmenu > li > a { padding:0 15px; color:#fff;  }
+        
+        
+        
+        #main-menu {
+            position:absolute; left:-1000px; top:0;
+            width:25vw; height:70vh; background: rgba(255,255,255,1); 
+            opacity:0 ; transition:all 0.3s ease-in 1s; z-index:3;
+        }
+        #main-menu ul { 
+            position:absolute; left:50%; top:50%; width:25vw; height:70vh;
+            margin:-20vh 0 0 -10vw;
+        }
+        #main-menu li { height:15vh; }
+        #main-menu li a { font-size:32px; color:#333; text-transform:capitalize; letter-spacing:-3px; }
+        
+        #subBg { 
+            position:absolute; left:-999px; top: 0;
+            width:25vw; height:70vh; background:#feeaef ;
+            opacity:0; transition:all 0.4s ease-in 0.5s ;
+            z-index:2;
+        }
+        #subBg ul.sub-menu { 
+            position:absolute; left:0; top:-900px;  
+            width:100%;  
+            opacity:0;
+            z-index: 9;
+            transition:all 1s ease-in ;
+         }
+         #subBg ul.sub-menu > li { padding-top:40px; }
+        #subBg ul.sub-menu > li > a{ 
+            height:60px; 
+            font-size:24px; color:#000; text-align: center; line-height: 60px; 
+        }
+        
+        #menuBg {
+            position:absolute; top: 0px; left:-1000px; width:25vw; height:70vh ;
+            background:url('../../imgs/mainBg.jpg') no-repeat center center ;  
+            background-size:cover;
+            opacity:0;
+            transition:all 0.5s ease-in ;
+        }
+        
+        
+        /*=====#main-menu.active=====*/
+        #main-menu.active{ opacity:1; left:0; transition:all 0.5s ease-in; }
+        #subBg.active{ opacity:1; left:25vw }
+        #subBg .sub-menu.on {opacity:1 ; top:33%;  }
+        #menuBg.active { opacity:1;left:50vw; transition:all 0.3s ease-in 1s; }
+
+        section {position: relative; width:1000px; height:100vh; margin:0 auto;}
+        .hd {
+            position: absolute; top:20vh; left:30px; z-index:99 ;
+        }
+        path {
+            fill:#fff;
+            stroke:#FFF; 
+            stroke-dasharray:1200;
+            stroke-miterlimit:10;
+            opacity:1;
+            animation:strokeAni 10s cubic-bezier(0,0.23,1,1) infinite normal;
+        }
+        .st0{
+            fill:#c31432; 
+            stroke:#c31432; 
+            stroke-width:3; 
+            stroke-miterlimit:10; 
+            animation:strokeAni2 10s cubic-bezier(0,0.23,1,1) infinite normal;
+        }
+        @keyframes strokeAni {
+            0%{
+                fill:none;
+                opacity:0; 
+                stroke-dashoffset:1200; 
+            }
+            30%{
+                fill:rgba(255,255,255,0.5);
+                opacity:0.6;
+                stroke-dashoffset:600; 
+            }
+            50%{
+                fill:rgba(255,255,255,0);
+                opacity:1;
+                stroke-dashoffset:800; 
+            }
+            65%{
+                fill:rgba(255,255,255,1);
+                opacity:1;
+                stroke-dashoffset:1200; 
+            }
+            75%{
+                fill:rgba(255,255,255,0);
+            }
+            85%{
+                fill:rgba(255,255,255,1);
+                opacity:1;
+                stroke-dashoffset:0; 
+            }
+        }
+        @keyframes strokeAni2 {
+            0%{
+                fill:none;
+                opacity:0; 
+                stroke-dashoffset:1200; 
+            }
+            30%{
+                fill:rgba(195,20,50,0.5);
+                stroke-dashoffset:300; 
+            }
+            50%{
+                fill:rgba(255,255,255,0);
+                opacity:1;
+                stroke-dashoffset:800; 
+            }
+            65%{
+                fill:#c31432;
+                opacity:1;
+                stroke-dashoffset:1200; 
+            }
+            75%{
+                fill:rgba(255,255,255,0);
+            }
+            85%{
+                fill:#c31432;
+                opacity:1;
+                stroke-dashoffset:0; 
+            }
+        }
+
+        .btns {
+            position: absolute; top:75vh; left:20px; z-index:99 ;
+        }
+
+        .btns > div {
+            float:left; margin-right:50px;
+            transition:all 0.3s ease-out;
+        }
+        .btns > div:nth-child(4) { margin-right:0; }
+
+        .btns > div > a {
+            width:200px; height:85px; padding-top:25px;
+            font-size:24px; text-align:center;  color:#fff ; text-transform: capitalize;
+            border:1px solid #fff;
+            transition:all 0.3s ease-out;
+        }
+
+        .btns >div:hover>a {
+            height:135px;  padding-top:37px ; 
+            background:rgba(195,20,50,0.8);
+            border:none;
+            transform:translateY(-50px) ;
+        }
+
+        .btns > div:nth-child(1):hover a::after{
+            content:'칵테일에 대해서'; display:block; font-size:16px;
+        }
+        .btns > div:nth-child(2):hover a::after{
+            content:'칵테일의 종류'; display:block; font-size:16px;
+        }
+        .btns > div:nth-child(3):hover a::after{
+            content:'교육'; display:block; font-size:16px;
+        }
+        .btns > div:nth-child(4):hover a::after{
+            content:'예약'; display:block; font-size:16px;
+        }
+    }
+    @media screen and (min-width:700px) and (max-width:999px) {
+        .pc, .fhd, .sm, #subBg {display:none;}
+        header { position:fixed; width:100%; height:70px; }
+        nav { width:95%; margin:0 auto; }
+        nav #trigger{ position:relative; width:40px; height:24px; margin-top:22px; z-index:99;}
+        nav #trigger span {
+           position:absolute; right:0; height:4px;
+           background:#fff; border-radius:4px;
+           transition:all 0.4s ease-in 1.2s;
+        }
+        nav #trigger span:nth-child(1) { top:0; width:100% }
+        nav #trigger span:nth-child(2) { bottom:2px; width:100% }
+        /*=====#trigger.active=====*/
+        nav #trigger.active span { background:#c31432 ; transition:all 0.4s ease-in; }
+        nav #trigger.active span:nth-child(1) { 
+            width:70%;
+            transform: translateY(9px) rotate(-45deg); }
+        nav #trigger.active span:nth-child(2) {
+            width:70%;
+            transform:translateY(-9px) rotate(45deg);
+        }
+        nav h1 { position:absolute; left:50%; top:18px; width:160px; margin-left:-80px; }
+        nav h1 img { width:100%; }
+        nav .topmenu { float:right; margin-top:-30px ;}
+        nav .topmenu > li { float:left; }
+        nav .topmenu > li > a {  padding:0 15px; font-size:28px; color:#fff;  }
+        
+        
+        
+        #main-menu {
+            position:absolute; left:0; top:-999px;
+            width:95vw; height:60vh; background: rgba(255,255,255,1); 
+            opacity:0 ; transition:all 0.3s ease-in 0.5s; z-index:3;
+        }
+        #main-menu ul { 
+            position:absolute; left:50%; top:50%; width:70vw; height:50vh;
+            margin:-20vh 0 0 -30vw;
+        }
+        #main-menu li { height:12.5vh; }
+        #main-menu li a { font-size:30px; color:#333; text-transform:capitalize; letter-spacing:-3px; }
+        
+        #subBg { 
+            position:absolute; left:-999px; top: 0;
+            width:25vw; height:100vh; background:#feeaef ;
+            opacity:0; transition:all 0.4s ease-in 0.5s ;
+            z-index:2;
+        }
+        #subBg ul.sub-menu { 
+            position:absolute; left:0; top:-900px;  
+            width:100%;  
+            opacity:0;
+            z-index: 9;
+            transition:all 1s ease-in ;
+         }
+         #subBg ul.sub-menu > li { padding-top:40px; }
+        #subBg ul.sub-menu > li > a{ 
+            height:60px; 
+            font-size:30px; color:#000; text-align: center; line-height: 60px; 
+        }
+        
+        #menuBg {
+            position:absolute; left:0vw; top:-999px; width:95vw; height:50vh ;
+            background:url('../../imgs/mainBg.jpg') no-repeat center center ;    
+            background-size:cover;
+            opacity:0;
+            transition:all 0.5s ease-in ;
+        }
+        
+        
+        /*=====#main-menu.active=====*/
+        #main-menu.active{ opacity:1; top:0; transition:all 0.5s ease-in; }
+        #subBg.active{ opacity:0; left:35vw }
+        #subBg .sub-menu.on {opacity:0 ; top:33%;  }
+        #menuBg.active { opacity:1;left:0vw; top:60vh; transition:all 0.3s ease-in 0.5s; }
+
+        section{position: relative; width:100vw ; height:100vh;  padding:0 5px ;}
+        .hd {
+            position: absolute; top:15vh; left:50%; transform: translateX(-50%); z-index:99 ;
+        }
+        path {
+            fill:#fff; 
+            stroke:#FFF; 
+            stroke-dasharray:1200;
+            
+            stroke-miterlimit:10;
+            opacity:1;
+            animation:strokeAni 15s cubic-bezier(0,0.23,1,1) infinite normal;
+            
+        }
+        .st0{
+            fill:#c31432; 
+            stroke:#c31432; 
+            stroke-width:3; 
+            stroke-miterlimit:10; 
+            animation:strokeAni2 15s cubic-bezier(0,0.23,1,1) infinite normal;
+        }
+        @keyframes strokeAni {
+            0%{
+                fill:none;
+                opacity:0;
+                stroke-dashoffset:1200; 
+            }
+            30%{
+                fill:rgba(255,255,255,0.5);
+                stroke-dashoffset:600; 
+            }
+            50%{
+                fill:rgba(255,255,255,0);
+                opacity:1;
+                stroke-dashoffset:800; 
+            }
+            65%{
+                fill:rgba(255,255,255,1);
+                opacity:1;
+                stroke-dashoffset:1200; 
+            }
+            75%{
+                fill:rgba(255,255,255,0);
+            }
+            85%{
+                fill:rgba(255,255,255,1);
+                opacity:1;
+                stroke-dashoffset:0; 
+            }
+        }
+        @keyframes strokeAni2 {
+            0%{
+                fill:none;
+                opacity:0; 
+                stroke-dashoffset:1200; 
+            }
+            30%{
+                fill:rgba(195,20,50,0.5);
+                stroke-dashoffset:300; 
+            }
+            50%{
+                fill:rgba(255,255,255,0);
+                opacity:1;
+                stroke-dashoffset:800; 
+            }
+            65%{
+                fill:#c31432;
+                opacity:1;
+                stroke-dashoffset:1200; 
+            }
+            75%{
+                fill:rgba(255,255,255,0);
+            }
+            85%{
+                fill:#c31432;
+                opacity:1;
+                stroke-dashoffset:0; 
+            }
+        }
+        
+        .btns {
+            position: absolute; bottom:10vh ; left:50%; width: 660px; margin-left:-330px; z-index:99 ;
+        }
+        
+        .btns > div {
+            float:left; margin:15px;
+            transition:all 0.3s ease-out;
+        }
+        .btns > div:nth-child(4) { margin-right:0; }
+        
+        .btns > div > a {
+            width:300px; height:75px; padding-top:15px;
+            font-size:30px; text-align:center;  color:#fff ; text-transform: capitalize;
+            border:1px solid #fff;
+            border-radius:75px;
+            transition:all 0.3s ease-out;
+        }
+    }
+    @media screen and (max-width:699.9px) {
+        .pc, .fhd, .hd, #subBg {display:none;}
+        body { position: fixed; }
+        header { position:fixed; width:100%; height:50px;}
+        nav { width: 100%; padding:0 10px; }
+        nav #trigger{ float: left; position:relative;  width:40px; height:24px; margin-top:20px; z-index:99;}
+        nav #trigger span {
+           position:absolute; right:0; height:3px;
+           background:#fff; border-radius:4px;
+           transition:all 0.4s ease-in 1.2s;
+        }
+        nav #trigger span:nth-child(1) { top:0; width:100% }
+        nav #trigger span:nth-child(2) { bottom:2px; width:100% }
+        /*=====#trigger.active=====*/
+        nav #trigger.active span { background:#c31432 ; transition:all 0.4s ease-in; }
+        nav #trigger.active span:nth-child(1) { 
+            width:70%;
+            transform: translateY(9px) rotate(-45deg); }
+        nav #trigger.active span:nth-child(2) {
+            width:70%;
+            transform:translateY(-9px) rotate(45deg);
+        }
+        
+        nav .topmenu { float:right; margin-top:10px ; }
+        nav .topmenu > li { float:left; }
+        nav .topmenu > li > a {  padding:0 15px; font-size:28px; color:#fff;  }
+        
+        
+        
+        #main-menu {
+            position:absolute; left:0; top:-999px;
+            width:95%; height:60vh; background: rgba(255,255,255,1); 
+            opacity:0 ; transition:all 0.3s ease-in 0.5s; z-index:3;
+        }
+        #main-menu ul { 
+            position:absolute; left:50%; top:50%; width:70vw; height:50vh;
+            margin:-20vh 0 0 -30vw;
+        }
+        #main-menu li { height:12.5vh; }
+        #main-menu li a { font-size:30px; color:#333; text-transform:capitalize; letter-spacing:-3px; }
+        
+        
+        #menuBg {
+            position:absolute; left:0vw; top:-999px; width:95%; height:40vh ;
+            background:url('../../imgs/mainBg.jpg') no-repeat center center ;  
+            background-size:cover;
+            opacity:0;
+            transition:all 0.5s ease-in ;
+        }
+        
+        #main-menu.active{ opacity:1; top:0; transition:all 0.5s ease-in; }
+        #menuBg.active { opacity:1;left:0vw; top:60vh; transition:all 0.3s ease-in 0.5s; }
+
+        section {position: relative; width:100vw ; height:100vh; margin:0 auto; padding:0 5px ;}
+        .sm {
+            position: absolute; top:15vh; left:50%; transform: translateX(-50%); z-index:99 ;
+        }
+        path {
+            fill:#fff; 
+            stroke:#FFF; 
+            stroke-dasharray:800;
+            
+            stroke-miterlimit:10;
+            opacity:1;
+            animation:strokeAni 15s cubic-bezier(0,0.23,1,1) infinite normal;
+            
+        }
+        .st0{
+            fill:#c31432;
+            stroke:#c31432; 
+            stroke-width:3; 
+            stroke-miterlimit:10; 
+            animation:strokeAni2 15s cubic-bezier(0,0.23,1,1) infinite normal;
+        }
+        
+        @keyframes strokeAni {
+            0%{
+                fill:none;
+                opacity:0; 
+                stroke-dashoffset:1200; 
+            }
+            30%{
+                fill:rgba(255,255,255,0.5);
+                opacity:0.6;
+                stroke-dashoffset:300; 
+            }
+            50%{
+                fill:rgba(255,255,255,0);
+                opacity:1;
+                stroke-dashoffset:400; 
+            }
+            65%{
+                fill:rgba(255,255,255,1);
+                opacity:1;
+                stroke-dashoffset:600; 
+            }
+            75%{
+                fill:rgba(255,255,255,0);
+            }
+            85%{
+                fill:rgba(255,255,255,1);
+                opacity:1;
+                stroke-dashoffset:0; 
+            }
+        }
+        @keyframes strokeAni2 {
+            0%{
+                fill:none;
+                opacity:0; 
+                stroke-dashoffset:1200; 
+            }
+            30%{
+                fill:rgba(195,20,50,0.5);
+                stroke-dashoffset:300; 
+            }
+            50%{
+                fill:rgba(255,255,255,0);
+                opacity:1;
+                stroke-dashoffset:400; 
+            }
+            65%{
+                fill:#c31432;
+                opacity:1;
+                stroke-dashoffset:600; 
+            }
+            75%{
+                fill:rgba(255,255,255,0);
+            }
+            85%{
+                fill:#c31432;
+                opacity:1;
+                stroke-dashoffset:0; 
+            }
+        }
+        
+        
+        .btns {
+            position: absolute; bottom:15vh; left:50%; transform: translateX(-50%); z-index:99 ;
+        }
+        
+        .btns > div {
+            width:65vw; margin:10px auto;
+        }
+        
+        .btns > div > a {
+            width:100%; height:50px; padding-top:13px; 
+            font-size:18px; text-align:center;  color:#fff ; text-transform: capitalize;
+            border:1px solid #fff;
+            border-radius:50px;
+        
+        }
+    }
+
+
+
+

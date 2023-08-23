@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bree Serif', 'Noto Sans KR', serif;
+  font-size: 16px;
+  color: #333;
+  background: #fff;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bree Serif','Noto Sans KR', serif;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+button {
+  display: block;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}
